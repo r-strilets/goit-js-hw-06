@@ -10,7 +10,6 @@ function getRandomHexColor() {
 coolButton.addEventListener("click", onClickChangeBgColor);
 
 function onClickChangeBgColor(event) {
-  console.log(getRandomHexColor());
   document.querySelector("body").style.backgroundColor = getRandomHexColor();
   document.querySelector(".color").textContent =
     document.querySelector("body").style.backgroundColor;
