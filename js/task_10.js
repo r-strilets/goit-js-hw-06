@@ -6,17 +6,39 @@
 // Всі елементи повинні мати випадковий колір фону у форматі HEX. Використовуй готову функцію getRandomHexColor для отримання кольору.
 
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
-const inputValue = document.querySelector('[type="number"]');
+const someInput = document.querySelector('[type="number"]');
 const buttonCreate = document.querySelector("[data-create]");
 const buttonDestroy = document.querySelector("[data-destroy]");
 const newBoxColection = document.querySelector("#boxes");
 
-let randomHexColor = getRandomHexColor();
+buttonCreate.addEventListener("click", onClickNewColection);
+buttonDestroy.addEventListener("click", onClickDestroyColection);
 
-inputValue.addEventListener();
+function onClickNewColection(e) {
+  const amount = someInput.value;
+  const newEllements = createBoxes(amount);
+  newBoxColection.insertAdjacentHTML("beforeEnd", newEllements);
+}
+function onClickDestroyColection(e) {
+  newBoxColection.innerHTML = "";
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
 }
+let counter = 30;
+function createBoxes(amount) {
+  const newArr = new Array(+amount);
+  const newString = [...newArr].reduce((acc, item) => {
+    let randomHexColor = getRandomHexColor();
+    acc += `</br><div style="width:${counter}px;height:${counter}px;background-color:${randomHexColor}"></div>`;
+    counter += 10;
+    return acc;
+  }, "");
+
+  return newString;
+}
+const newBox = document.getElementById("boxes");
+console.dir(newBox);
