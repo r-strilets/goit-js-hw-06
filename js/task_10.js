@@ -40,5 +40,3 @@ function createBoxes(amount) {
 
   return newString;
 }
-const newBox = document.getElementById("boxes");
-console.dir(newBox);
