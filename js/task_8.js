@@ -10,8 +10,8 @@ loginForm.addEventListener("submit", onClickFormSubmit);
 
 function onClickFormSubmit(event) {
   event.preventDefault();
-  const email = event.target.elements.email;
-  const password = event.target.elements.password;
+  const { email, password } = event.target.elements;
+
   const elements = {
     email: email.value,
     password: password.value,
