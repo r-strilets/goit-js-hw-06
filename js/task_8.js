@@ -10,18 +10,23 @@ loginForm.addEventListener("submit", onClickFormSubmit);
 
 function onClickFormSubmit(event) {
   event.preventDefault();
-  if (
-    event.target.elements.email.value === "" ||
-    event.target.elements.password.value === ""
-  ) {
+  const email = event.target.elements.email;
+  const password = event.target.elements.password;
+  const elements = {
+    email: email.value,
+    password: password.value,
+  };
+
+  if (elements.email === "" || elements.password === "") {
     alert("Всі поля повинні бути заповнені !!!!");
+  } else {
+    console.log(elements);
+    event.target.reset();
+
+    // const formData = new FormData(event.target);
+    // formData.forEach((value, name) => {
+    //   console.log(value);
+    //   console.log(name);
+    // });
   }
-  const formData = new FormData(event.target);
-
-  formData.forEach((value, name) => {
-    console.log(value);
-    console.log(name);
-  });
-
-  event.target.reset();
 }

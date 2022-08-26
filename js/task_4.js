@@ -8,14 +8,14 @@ const incrementButton = document.querySelector('[data-action="increment"]');
 decrementButton.addEventListener("click", clickOnDecrement);
 incrementButton.addEventListener("click", clickOnIncrement);
 
-let incrementValue = 0;
+let counterValue = 0;
 
 function clickOnDecrement(event) {
-  incrementValue -= 1;
+  counterValue -= 1;
   counterTextСontent.textContent = incrementValue;
 }
 
 function clickOnIncrement(event) {
-  incrementValue += 1;
+  counterValue += 1;
   counterTextСontent.textContent = incrementValue;
 }

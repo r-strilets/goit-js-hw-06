@@ -6,4 +6,7 @@ someInput.addEventListener("input", changeSomeOutput);
 
 function changeSomeOutput(event) {
   someOutput.textContent = event.target.value;
+  if (event.target.value === "") {
+    someOutput.textContent = "Anonymous";
+  }
 }
